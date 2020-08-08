@@ -1,0 +1,13 @@
+<div class="diensten">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-box">
+        <h1 class="title text-center mb-5">Werkwijze</h1>
+        <p class="text text-center">Stappenplan</p>
+      </div>
+      <app-card class="col-6"
+      *ngFor="let cardElm of cards"
+      [card]="cardElm"></app-card>
+    </div>
+  </div>
+</div>

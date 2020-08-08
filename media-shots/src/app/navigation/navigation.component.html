@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" href="#"
+    (click)="onSelectNav('home')"><img src="../assets/img/intro-logo.png" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"
+          [class.active]="dienstenActive">
+        <a class="nav-link" href="#"
+          (click)="onSelectNav('diensten')">DIENSTEN</a>
+      </li>
+      <li class="nav-item"
+        [class.active]="werkwijzeActive">
+        <a class="nav-link" href="#"
+          (click)="onSelectNav('werkwijze')">WERKWIJZE</a>
+      </li>
+      <li class="nav-item"
+        [class.active]="portfolioActive">
+        <a class="nav-link" href="#"
+          (click)="onSelectNav('portfolio')">PORTFOLIO</a>
+      </li>
+      <li class="nav-item"
+        [class.active]="overOnsActive">
+        <a class="nav-link" href="#"
+          (click)="onSelectNav('over-ons')">OVER ONS</a>
+      </li>
+      <li class="nav-item"
+        [class.active]="contactActive">
+        <a class="nav-link" href="#"
+          (click)="onSelectNav('contact')">CONTACT</a>
+      </li>
+    </ul>
+  </div>
+</nav>

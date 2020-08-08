@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'media-shots';
+  navigateTo = 'werkwijze';
+  onNavigate(navigateTo: string) {
+    console.log(navigateTo);
+    this.navigateTo = navigateTo;
+  }
 }
