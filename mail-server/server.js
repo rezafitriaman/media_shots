@@ -1,3 +1,4 @@
+// example: npm run start user=reza pass=master
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -5,9 +6,11 @@ const nodemailer = require('nodemailer');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const app = express();
+const user = process.argv.slice(2)[0].split('=')[1]; 
+const pass = process.argv.slice(2)[1].split('=')[1]; 
+const port = process.env.PORT || 3000;
 
 process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
-
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars')
 
@@ -21,8 +24,8 @@ app.use(cors({
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 
-app.listen(3000, () => {
-    console.log("The server started on port 3000");
+app.listen(port, () => {
+    console.log("The server started on port", port);
   });
 
   app.get('/',(req, res) => {
@@ -50,9 +53,9 @@ app.post("/send", (req, res) => {
         port: 587,
         secure: false,
         auth: {
-            user: "",
-            pass: ""
-        },
+            user: user,
+            pass: pass
+        }, 
         tls: {
             rejectUnautorized: false
         }
@@ -73,7 +76,7 @@ app.post("/send", (req, res) => {
           } else {
             console.log("Email has been sent");
             //res.send(info);
-            res.send({msg: 'email has been send'})
+            res.send({msg: 'Your message has been send'})
           }
 
     });
