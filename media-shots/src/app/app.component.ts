@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'media-shots';
-  navigateTo = 'werkwijze';
+  title: 'mediaShots'
+  navigateTo = 'home';
+  backgroundImage = '../assets/img/Video-Webinar.jpg';
+  
   onNavigate(navigateTo: string) {
     console.log(navigateTo);
     this.navigateTo = navigateTo;

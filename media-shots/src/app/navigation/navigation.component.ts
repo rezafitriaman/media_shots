@@ -6,18 +6,18 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  public dienstenActive = false;
+  /* public dienstenActive = false;
   public overOnsActive = false;
   public werkwijzeActive = false;
   public portfolioActive = false;
   public contactActive = false;
   public homeActive = true;
-  @Output() featureSelected = new EventEmitter<string>();
+  @Output() featureSelected = new EventEmitter<string>(); */
   constructor() { }
 
   ngOnInit(): void {
   }
-  onSelectNav(feature: string) {
+/*   onSelectNav(feature: string) {
     this.featureSelected.emit(feature);
     if (feature === 'diensten') {
       this.dienstenActive = true;
@@ -57,5 +57,5 @@ export class NavigationComponent implements OnInit {
       this.portfolioActive = false;
       this.contactActive = false;
     }
-  }
+  } */
 }

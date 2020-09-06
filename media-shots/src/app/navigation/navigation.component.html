@@ -1,12 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand" href="#"
-    (click)="onSelectNav('home')"><img src="../assets/img/intro-logo.png" alt=""></a>
+  <a class="navbar-brand" 
+    [routerLink]="['/']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}">
+    <img src="../assets/img/intro-logo.png" alt="">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item"
+      <li class="nav-item">
+        <a class="nav-link" 
+          [routerLink]="['diensten']"
+          routerLinkActive="active">DIENSTEN</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" 
+          [routerLink]="['werkwijze']"
+          routerLinkActive="active">WERKWIJZE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" 
+          [routerLink]="['portfolio']"
+          routerLinkActive="active">PORTFOLIO</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" 
+          [routerLink]="['over-ons']"
+          routerLinkActive="active">OVER ONS</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" 
+          [routerLink]="['contact']"
+          routerLinkActive="active">CONTACT</a>
+      </li>
+      <!-- <li class="nav-item"
           [class.active]="dienstenActive">
         <a class="nav-link" href="#"
           (click)="onSelectNav('diensten')">DIENSTEN</a>
@@ -30,7 +59,7 @@
         [class.active]="contactActive">
         <a class="nav-link" href="#"
           (click)="onSelectNav('contact')">CONTACT</a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>

@@ -5,3 +5,4 @@ export class CardModel {
     this.image = image;
   }
 }
+ 

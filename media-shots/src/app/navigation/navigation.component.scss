@@ -1,11 +1,26 @@
 .navbar-light .navbar-nav .nav-link {
   color: rgb(255 255 255 / 50%);
+  position: relative;
+}
+
+.navbar-light .navbar-nav .nav-item:not(:last-child) .nav-link::after {
+  content: '';
+  display: block;
+  height: 13px;
+  width: 10px;
+  border-right: 1px solid rgb(255 255 255 / 50%);
+  position: absolute;
+  right: 0;
+  bottom: 13px;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
   color: rgb(255 255 255 / 90%);
 }
 
-.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+.navbar-light .navbar-nav .show > .nav-link, 
+.navbar-light .navbar-nav .active > .nav-link, 
+.navbar-light .navbar-nav .nav-link.show, 
+.navbar-light .navbar-nav .nav-link.active {
   color: rgb(255 255 255 / 90%);
 }

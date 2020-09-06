@@ -1,0 +1,36 @@
+.contact {
+  min-height: 1120px;
+  .row {
+    padding-bottom: 70px;
+
+    .text-box {
+      margin-bottom: 70px;
+
+      h1,
+      .text {
+        color: white;
+        margin-top: 35px;
+      }
+      
+      .text {
+        font-size: 18px;
+      }
+    }
+
+    .jumbotron {
+      height: 300px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .text-content {
+      color: white;
+    }
+
+    label, .text-send {
+      color: white;
+    }
+    
+  }
+}

@@ -1,0 +1,52 @@
+<div class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-box">
+            <h1 class="title text-center mb-5">Contact</h1>
+            <p class="text text-center">Neem contact met ons op</p>
+        </div>
+        <div class="col-12">
+            <div class="jumbotron" style="background-image: url('../../assets/img/videoBAnner.jpg');"></div>
+        </div>
+        <div class="col-12 text-content">
+            <h2>Lorem Ipsum</h2>
+            <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. 
+                Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, 
+                toen een onbekende drukker een zethaak met letters nam en ze door elkaar 
+                husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen 
+                overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische 
+                letterzetting. 
+                Het is in de jaren '60 populair geworden met de introductie van Letraset v</p>
+        </div>
+        <div class="col-12 form mt-5">
+          <form #sendEmail = "ngForm" (ngSubmit) = "onClickSubmit(sendEmail.value)">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" aria-describedby="naam" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" class="form-control" id="company" name="company" aria-describedby="Company" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="number" class="form-control" id="phoneNumber" name="phone" aria-describedby="phoneNumber" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="textarea">Message</label>
+                <textarea class="form-control" id="textarea" rows="3" name="message" ngModel></textarea>
+              </div>
+            <button type="submit" class="btn btn-primary" value = "submit">Send</button>
+          </form>
+        </div>
+        <div class="col-12">
+          <p class="text-send mt-3">{{feedbackData}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

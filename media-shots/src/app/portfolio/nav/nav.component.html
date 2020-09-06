@@ -1,0 +1,5 @@
+<ul class="nav justify-content-center">
+    <app-item *ngFor="let itemNavElm of itemsNav[0]"
+    [itemNav]="itemNavElm"
+    (navSelected)="onNavigate($event)"></app-item>
+</ul>

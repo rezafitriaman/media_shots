@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CardModel} from './card/card.model';
+import {CardModel} from '../shared/card.model'; 
 
 @Component({
   selector: 'app-werkwijze',
