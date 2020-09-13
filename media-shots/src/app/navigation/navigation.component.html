@@ -1,65 +1,93 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a class="navbar-brand" 
-    [routerLink]="['/']"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{exact: true}">
-    <img src="../assets/img/intro-logo.png" alt="">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" 
-          [routerLink]="['diensten']"
-          routerLinkActive="active">DIENSTEN</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" 
-          [routerLink]="['werkwijze']"
-          routerLinkActive="active">WERKWIJZE</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" 
-          [routerLink]="['portfolio']"
-          routerLinkActive="active">PORTFOLIO</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" 
-          [routerLink]="['over-ons']"
-          routerLinkActive="active">OVER ONS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" 
-          [routerLink]="['contact']"
-          routerLinkActive="active">CONTACT</a>
-      </li>
-      <!-- <li class="nav-item"
-          [class.active]="dienstenActive">
-        <a class="nav-link" href="#"
-          (click)="onSelectNav('diensten')">DIENSTEN</a>
-      </li>
-      <li class="nav-item"
-        [class.active]="werkwijzeActive">
-        <a class="nav-link" href="#"
-          (click)="onSelectNav('werkwijze')">WERKWIJZE</a>
-      </li>
-      <li class="nav-item"
-        [class.active]="portfolioActive">
-        <a class="nav-link" href="#"
-          (click)="onSelectNav('portfolio')">PORTFOLIO</a>
-      </li>
-      <li class="nav-item"
-        [class.active]="overOnsActive">
-        <a class="nav-link" href="#"
-          (click)="onSelectNav('over-ons')">OVER ONS</a>
-      </li>
-      <li class="nav-item"
-        [class.active]="contactActive">
-        <a class="nav-link" href="#"
-          (click)="onSelectNav('contact')">CONTACT</a>
-      </li> -->
-    </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a
+          class="navbar-brand"
+          [routerLink]="['/']"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="collapsedOrNot = false"
+        >
+          <img [src]="logo" alt="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="true"
+          aria-label="Toggle navigation"
+          [class.collapsed]="collapsedOrNot"
+          (window:resize)="collapsedOrNot = false"
+          (click)="collapsedOrNot = !collapsedOrNot"
+        >
+          <svg
+            viewBox="0 0 100 80"
+            width="40"
+            height="40"
+            style="fill: #b8b8b8"
+          >
+            <rect width="100" height="10"></rect>
+            <rect y="30" width="100" height="10"></rect>
+            <rect y="60" width="100" height="10"></rect>
+          </svg>
+        </button>
+        <div
+          class="collapse navbar-collapse collapse"
+          id="navbarNav"
+          [class.show]="collapsedOrNot"
+        >
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['diensten']"
+                routerLinkActive="active"
+                (click)="collapsedOrNot = !collapsedOrNot"
+                >DIENSTEN</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['werkwijze']"
+                routerLinkActive="active"
+                (click)="collapsedOrNot = !collapsedOrNot"
+                >WERKWIJZE</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['portfolio']"
+                routerLinkActive="active"
+                (click)="collapsedOrNot = !collapsedOrNot"
+                >PORTFOLIO</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['over-ons']"
+                routerLinkActive="active"
+                (click)="collapsedOrNot = !collapsedOrNot"
+                >OVER ONS</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="['contact']"
+                routerLinkActive="active"
+                (click)="collapsedOrNot = !collapsedOrNot"
+                >CONTACT</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
-</nav>
+</div>

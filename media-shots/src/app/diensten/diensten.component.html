@@ -1,20 +1,21 @@
+<!-- TODO make this mobile -->
 <div class="diensten">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1 class="title text-center mb-5">Diensten</h1>
-        <p class="text text-center">Media Shots bied verschillende diensten aan</p>
-      </div>
-      <div class="col-12">
-        <div class="box-container">
-          <div class="container">
-            <div class="row">
-              <app-items class="col-6" *ngFor="let itemDec of items"
-              [item]="itemDec"></app-items>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="title text-center mb-5">Diensten</h1>
+				<p class="text text-center">Media Shots biedt verschillende diensten aan</p>
+			</div>
+			<div class="col-12">
+				<div class="box-container">
+					<div class="container">
+						<div class="row">
+							<app-items class="col-12 col-lg-6" *ngFor="let itemDec of items"
+							[item]="itemDec"></app-items>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

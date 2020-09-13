@@ -1,6 +1,4 @@
 import { HttpClientModule } from '@angular/common/http';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -25,21 +23,7 @@ import { ContactComponent } from './contact/contact.component';
 import { MessageService } from './message.service';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'diensten', component: DienstenComponent},
-  {path: 'werkwijze', component: WerkwijzeComponent},
-  {path: 'portfolio', component: PortfolioComponent,
-    children: [
-      {path: 'bedrijfsvideo', component: CardPortfolioComponent},
-      {path: 'instructievideo', component: CardPortfolioComponent},
-      {path: 'socialmediavideo', component: CardPortfolioComponent},
-      {path: 'aftermovie', component: HomeComponent}
-    ]},
-  {path: 'over-ons', component: OverOnsComponent},
-  {path: 'contact', component: ContactComponent},
-];
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -59,14 +43,14 @@ const appRoutes: Routes = [
     CardPortfolioComponent,
     OverOnsComponent,
     PhotoComponent,
-    ContactComponent
+    ContactComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    HttpClientModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent] 

@@ -15,7 +15,7 @@ export class PortfolioComponent implements OnInit {
                               new ItemNav('Socialmediavideo'),
                               new ItemNav('Aftermovie')];
 
-  instructieVideo: Array<CardModel> = [new CardModel('Pedro', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', '../../assets/img/dashboard.png'),
+  instructieVideo: Array<CardModel> = [new CardModel('instructie 1', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', '../../assets/img/dashboard.png'),
                                       new CardModel('instructie 2', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', '../../assets/img/dashboard.png'),
                                       new CardModel('instructie 3', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', '../../assets/img/dashboard.png'),
                                       new CardModel('instructie 4', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', '../../assets/img/dashboard2.png')]

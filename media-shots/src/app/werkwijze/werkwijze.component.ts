@@ -13,7 +13,5 @@ export class WerkwijzeComponent implements OnInit {
                         new CardModel('Title 4', 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.', '../../assets/img/dashboard2.png')];
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
