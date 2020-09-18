@@ -7,7 +7,8 @@ import { CardModel } from '../shared/card.model';
   styleUrls: ['./werkwijze.component.scss'],
 })
 export class WerkwijzeComponent implements OnInit {
-  title: string = 'Werkwijze';
+  title = 'Werkwijze';
+  subTitle = 'Stappenplan';
   cards: Array<CardModel> = [
     new CardModel(
       'Title 1',

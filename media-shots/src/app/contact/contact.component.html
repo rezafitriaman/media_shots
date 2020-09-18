@@ -2,23 +2,18 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-box">
-            <h1 class="title text-center mb-5">Contact</h1>
-            <p class="text text-center">Neem contact met ons op</p>
+            <h1 class="title text-center mb-5">{{title}}</h1>
+            <p class="text text-center">{{subTitle}}</p>
         </div>
         <div class="col-12">
-            <div class="jumbotron" style="background-image: url('../../assets/img/videoBAnner.jpg');"></div>
+            <div class="jumbotron" [ngStyle]="{backgroundImage: 'url('+ image +')'}"></div>
         </div>
         <div class="col-12 text-content">
-            <h2>Lorem Ipsum</h2>
-            <p>Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. 
-                Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, 
-                toen een onbekende drukker een zethaak met letters nam en ze door elkaar 
-                husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen 
-                overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische 
-                letterzetting. 
-                Het is in de jaren '60 populair geworden met de introductie van Letraset v</p>
+            <h2>{{title2}}</h2>
+            <p>{{subTitle2}}</p>
         </div>
         <div class="col-12 form mt-5">
+          <!--TODO form validation-->
           <form #sendEmail = "ngForm" (ngSubmit) = "onClickSubmit(sendEmail.value)">
             <div class="form-group">
               <label for="name">Name</label>
@@ -49,4 +44,3 @@
       </div>
     </div>
   </div>
-  
