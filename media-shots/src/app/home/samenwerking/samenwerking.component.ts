@@ -1,4 +1,15 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Route } from '@angular/compiler/src/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 enum Command {
   Next = 'next',
   Prev = 'prev',
@@ -8,13 +19,26 @@ enum Command {
   templateUrl: './samenwerking.component.html',
   styleUrls: ['./samenwerking.component.scss'],
 })
-export class SamenwerkingComponent implements OnInit {
+export class SamenwerkingComponent implements OnInit, AfterViewInit, OnDestroy {
   hasClicked = false;
-  title = 'Samenwerking';
+  inter;
+  @Input() title;
+  @Input() carouselItems;
+  @ViewChild('carouselControlNext') next: ElementRef;
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {}
 
+  ngAfterViewInit() {
+    this.inter = setInterval(() => {
+      this.next.nativeElement.click();
+    }, 10000);
+  }
+  
+  ngOnDestroy() {
+    clearInterval(this.inter)
+  }
+  
   arrowFunction(
     targetElm,
     nextOrPrevSibling,
@@ -27,11 +51,20 @@ export class SamenwerkingComponent implements OnInit {
       this.renderer.addClass(targetElm, classLeftOrRight);
 
       // next/prev element-sibling add carousel-item-next/carousel-item-prev and carousel-item-lef/tcarousel-item-right
-      if (nextOrPrevSibling !== null) {
-        this.renderer.addClass(nextOrPrevSibling, classNextOrPrev);
+      if (
+        nextOrPrevSibling !== null &&
+        nextOrPrevSibling.classList !== undefined
+      ) {
+        this.renderer.addClass(
+          nextOrPrevSibling.querySelector('.carousel-item'),
+          classNextOrPrev
+        );
 
         setTimeout(() => {
-          this.renderer.addClass(nextOrPrevSibling, classLeftOrRight);
+          this.renderer.addClass(
+            nextOrPrevSibling.querySelector('.carousel-item'),
+            classLeftOrRight
+          );
         }, 10);
       } else {
         this.renderer.addClass(carouselFirstOrLast, classNextOrPrev);
@@ -49,10 +82,22 @@ export class SamenwerkingComponent implements OnInit {
 
       // next/prev element-sibling add active and remove other class
       setTimeout(() => {
-        if (nextOrPrevSibling !== null) {
-          this.renderer.removeClass(nextOrPrevSibling, classNextOrPrev);
-          this.renderer.removeClass(nextOrPrevSibling, classLeftOrRight);
-          this.renderer.addClass(nextOrPrevSibling, 'active');
+        if (
+          nextOrPrevSibling !== null &&
+          nextOrPrevSibling.classList !== undefined
+        ) {
+          this.renderer.removeClass(
+            nextOrPrevSibling.querySelector('.carousel-item'),
+            classNextOrPrev
+          );
+          this.renderer.removeClass(
+            nextOrPrevSibling.querySelector('.carousel-item'),
+            classLeftOrRight
+          );
+          this.renderer.addClass(
+            nextOrPrevSibling.querySelector('.carousel-item'),
+            'active'
+          );
         } else {
           this.renderer.removeClass(carouselFirstOrLast, classNextOrPrev);
           this.renderer.removeClass(carouselFirstOrLast, classLeftOrRight);
@@ -63,7 +108,6 @@ export class SamenwerkingComponent implements OnInit {
   }
 
   carouselControl(data: HTMLLinkElement) {
-    console.log(data);
     if (!this.hasClicked) {
       const carouselInner = data.parentElement.querySelector('.carousel-inner');
       const carouselItem = carouselInner.querySelectorAll('.carousel-item');
@@ -75,17 +119,19 @@ export class SamenwerkingComponent implements OnInit {
         carouselItem.forEach((element) => {
           this.arrowFunction(
             element,
-            element.nextSibling,
+            element.parentNode.nextSibling,
             carouselItemFirst,
             'carousel-item-next',
             'carousel-item-left'
           );
         });
-      } else {
+      }
+
+      if (command === Command.Prev) {
         carouselItem.forEach((element) => {
           this.arrowFunction(
             element,
-            element.previousSibling,
+            element.parentNode.previousSibling,
             carouselItemLast,
             'carousel-item-prev',
             'carousel-item-right'

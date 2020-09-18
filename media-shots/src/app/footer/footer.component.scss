@@ -16,17 +16,8 @@ footer {
     list-style-type: none;
     display: flex;
 
-    li {
-      margin-right: 25px;
-      a {
-        position: relative;
-        bottom: 0;
-        transition: all 0.3s ease-in;
-      }
-
-      a:hover {
-        bottom: 5px;
-      }
+    app-social {
+      margin-right: 10px;
     }
   }
 

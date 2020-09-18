@@ -9,9 +9,9 @@ export class AppComponent {
   title: 'mediaShots'
   navigateTo = 'home';
   backgroundImage = '../assets/img/Video-Webinar.jpg';
-  
+
+  constructor() {}
   onNavigate(navigateTo: string) {
-    console.log(navigateTo);
     this.navigateTo = navigateTo;
   }
 }

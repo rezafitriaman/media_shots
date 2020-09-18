@@ -22,8 +22,9 @@ import { PhotoComponent } from './over-ons/photo/photo.component';
 import { ContactComponent } from './contact/contact.component';
 import { MessageService } from './message.service';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { CarouselItemComponent } from './home/samenwerking/carousel-item/carousel-item.component';
+import { SocialComponent } from './footer/social/social.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     OverOnsComponent,
     PhotoComponent,
     ContactComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    CarouselItemComponent,
+    SocialComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
