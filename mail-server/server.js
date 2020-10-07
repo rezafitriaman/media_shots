@@ -76,7 +76,7 @@ app.post("/send", (req, res) => {
           } else {
             console.log("Email has been sent");
             //res.send(info);
-            res.send({msg: 'Your message has been send'})
+            res.send({msg: 'Your message has been send.'})
           }
 
     });
