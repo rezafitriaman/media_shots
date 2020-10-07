@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./contact.component.scss'],
   providers: [MessageService],
 })
+
 export class ContactComponent implements OnInit {
   title = 'Contact';
   subTitle = 'Neem contact met ons op';
