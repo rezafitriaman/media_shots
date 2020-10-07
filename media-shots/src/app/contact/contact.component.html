@@ -1,46 +1,140 @@
 <div class="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-box">
-            <h1 class="title text-center mb-5">{{title}}</h1>
-            <p class="text text-center">{{subTitle}}</p>
-        </div>
-        <div class="col-12">
-            <div class="jumbotron" [ngStyle]="{backgroundImage: 'url('+ image +')'}"></div>
-        </div>
-        <div class="col-12 text-content">
-            <h2>{{title2}}</h2>
-            <p>{{subTitle2}}</p>
-        </div>
-        <div class="col-12 form mt-5">
-          <!--TODO form validation-->
-          <form #sendEmail = "ngForm" (ngSubmit) = "onClickSubmit(sendEmail.value)">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name" aria-describedby="naam" ngModel>
-            </div>
-            <div class="form-group">
-              <label for="company">Company</label>
-              <input type="text" class="form-control" id="company" name="company" aria-describedby="Company" ngModel>
-            </div>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" ngModel>
-            </div>
-            <div class="form-group">
-              <label for="phoneNumber">Phone Number</label>
-              <input type="number" class="form-control" id="phoneNumber" name="phone" aria-describedby="phoneNumber" ngModel>
-            </div>
-            <div class="form-group">
-                <label for="textarea">Message</label>
-                <textarea class="form-control" id="textarea" rows="3" name="message" ngModel></textarea>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-box">
+        <h1 class="title text-center mb-5">{{ title }}</h1>
+        <p class="text text-center">{{ subTitle }}</p>
+      </div>
+      <div class="col-12">
+        <div
+          class="jumbotron"
+          [ngStyle]="{ backgroundImage: 'url(' + image + ')' }"
+        ></div>
+      </div>
+      <div class="col-12 text-content">
+        <h2>{{ title2 }}</h2>
+        <p>{{ subTitle2 }}</p>
+      </div>
+      <div class="col-12 form mt-5">
+        <form
+          #sendEmail="ngForm"
+          name="sendEmail"
+          (ngSubmit)="onClickSubmit(sendEmail.value)"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'custom-invalid': name.touched && !name.valid }"
+              id="name"
+              name="name"
+              aria-describedby="naam"
+              ngModel
+              #name="ngModel"
+              required
+              minlength="2"
+              maxlength="15"
+            />
+            <div
+              class="custom-invalid-feedback"
+              *ngIf="name.touched && !name.valid"
+            >
+              <div *ngIf="name.errors.required">Name is required.</div>
+              <div *ngIf="name.errors.minlength">
+                Name should be minimum
+                {{ name.errors.minlength.requiredLength }} characters.
               </div>
-            <button type="submit" class="btn btn-primary" value = "submit">Send</button>
-          </form>
-        </div>
-        <div class="col-12">
-          <p class="text-send mt-3">{{feedbackData}}</p>
-        </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input
+              type="text"
+              class="form-control"
+              id="company"
+              name="company"
+              aria-describedby="company"
+              maxlength="256"
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              [ngClass]="{ 'custom-invalid': email.touched && !email.valid }"
+              id="email"
+              name="email"
+              aria-describedby="email"
+              ngModel
+              #email="ngModel"
+              required
+              pattern="^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[\w]+$"
+            />
+            <div
+              class="custom-invalid-feedback"
+              *ngIf="email.touched && !email.valid"
+            >
+              <div *ngIf="email.errors.required">Email is required.</div>
+              <div *ngIf="email.errors.pattern">Your email is not valid.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phoneNumber"
+              name="phone"
+              aria-describedby="phoneNumber"
+              onKeyDown="if(this.value.length==15 && event.keyCode!=8) return false;" 
+              ngModel
+            />
+          </div>
+          <div class="form-group">
+            <label for="textarea">Message</label>
+            <textarea
+              type="text"
+              class="form-control"
+              [ngClass]="{
+                'custom-invalid': message.touched && !message.valid
+              }"
+              id="textarea"
+              rows="3"
+              name="message"
+              ngModel
+              #message="ngModel"
+              required
+              minlength="2"
+              maxlength="256"
+            ></textarea>
+            <div
+              class="custom-invalid-feedback"
+              *ngIf="message.touched && !message.valid"
+            >
+              <div *ngIf="message.errors.required">Message is required.</div>
+              <div *ngIf="message.errors.minlength">
+                Message should be minimum
+                {{ message.errors.minlength.requiredLength }} characters.
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            value="submit"
+            [disabled]="!sendEmail.form.valid"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+      <div class="col-12">
+        <p class="text-send mt-3">{{ feedbackData }}</p>
       </div>
     </div>
   </div>
+</div>

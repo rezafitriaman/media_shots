@@ -1,8 +1,9 @@
+import { ItemNav } from './itemNav.model';
+
 export class CardModel {
-  constructor(public title: string, public description: string, public image: string) {
+  constructor(public title: string, public description: string, public image: string,) {
     this.title = title;
     this.description = description;
     this.image = image;
   }
 }
- 

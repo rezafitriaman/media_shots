@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardModel } from '../shared/card.model';
-import { ItemNav } from './nav/item/itemNav.model';
-// TODO next make this better
+import { ItemNav } from '../shared/itemNav.model';
+
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
@@ -9,7 +9,6 @@ import { ItemNav } from './nav/item/itemNav.model';
 })
 export class PortfolioComponent implements OnInit {
   cards: Array<CardModel> = [];
-  // todo make this better - create object for itemNav and cards
   itemsNav: Array<ItemNav> = [
     new ItemNav('Instructievideo'),
     new ItemNav('Bedrijfsvideo'),

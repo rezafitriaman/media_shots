@@ -11,24 +11,33 @@ import { ContactComponent } from './contact/contact.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'diensten', component: DienstenComponent},
-  {path: 'werkwijze', component: WerkwijzeComponent},
-  {path: 'portfolio', component: PortfolioComponent,
+  { path: '', component: HomeComponent },
+  { path: 'diensten', component: DienstenComponent },
+  { path: 'werkwijze', component: WerkwijzeComponent },
+  {
+    path: 'portfolio',
+    component: PortfolioComponent,
     children: [
-      {path: 'bedrijfsvideo', component: CardPortfolioComponent},
-      {path: 'instructievideo', component: CardPortfolioComponent},
-      {path: 'socialmediavideo', component: CardPortfolioComponent},
-      {path: 'aftermovie', component: HomeComponent}
-    ]},
-  {path: 'over-ons', component: OverOnsComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found'}},
-  {path: '**', redirectTo: '/not-found'}
+      { path: 'bedrijfsvideo', component: CardPortfolioComponent },
+      { path: 'instructievideo', component: CardPortfolioComponent },
+      { path: 'socialmediavideo', component: CardPortfolioComponent },
+      { path: 'aftermovie', component: HomeComponent },
+    ],
+  },
+  { path: 'over-ons', component: OverOnsComponent },
+  { path: 'contact', component: ContactComponent },
+  {
+    path: 'not-found',
+    component: ErrorPageComponent,
+    data: { message: 'Page not found' },
+  },
+  { path: '**', redirectTo: '/not-found' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(appRoutes, {
+    initialNavigation: 'enabled'
+})],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

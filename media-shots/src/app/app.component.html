@@ -1,4 +1,7 @@
-<div class="content" [ngStyle]="{backgroundImage: 'url('+ backgroundImage +')'}">
+<div
+  class="content"
+  [ngStyle]="{ backgroundImage: 'url(' + backgroundImage + ')' }"
+>
   <app-navigation (featureSelected)="onNavigate($event)"></app-navigation>
 
   <router-outlet></router-outlet>

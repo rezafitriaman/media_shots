@@ -1,5 +1,8 @@
-import { Route } from '@angular/compiler/src/core';
+import { interval } from 'rxjs';
+import { take } from 'rxjs/operators';
+
 import {
+  AfterContentInit,
   AfterViewInit,
   Component,
   ElementRef,
@@ -9,19 +12,21 @@ import {
   Renderer2,
   ViewChild,
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 enum Command {
   Next = 'next',
   Prev = 'prev',
 }
+
 @Component({
   selector: 'app-samenwerking',
   templateUrl: './samenwerking.component.html',
   styleUrls: ['./samenwerking.component.scss'],
 })
-export class SamenwerkingComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SamenwerkingComponent implements OnInit, AfterViewInit, OnDestroy, AfterContentInit {
   hasClicked = false;
-  inter;
+  /* numbers;
+  takeFourNumbers */
+  numbers
   @Input() title;
   @Input() carouselItems;
   @ViewChild('carouselControlNext') next: ElementRef;
@@ -30,13 +35,21 @@ export class SamenwerkingComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {}
 
   ngAfterViewInit() {
-    this.inter = setInterval(() => {
-      this.next.nativeElement.click();
-    }, 10000);
+    /* this.inter = setInterval(() => {
+      console.log('master')
+      this.next.nativeElement.click()
+    }, 10000); */
+  }
+
+  ngAfterContentInit(){
+    /* this.numbers = interval(10000).pipe(take(4)).subscribe(x => this.next.nativeElement.click());
+
+    setTimeout(() => {
+      this.numbers.unsubscribe();
+    }, 40000); */
   }
   
   ngOnDestroy() {
-    clearInterval(this.inter)
   }
   
   arrowFunction(
